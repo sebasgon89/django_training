@@ -31,4 +31,7 @@ def projects(request):
 def tasks(request):
     # task = get_object_or_404(Task, id=id)
     # return HttpResponse("<h2>Task: %s </h2>" % task.title)
-    return render(request, 'tasks.html')
+    tasks = Task.objects.all()
+    return render(request, 'tasks.html',{
+        'tasks' : tasks
+    })
